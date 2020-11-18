@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/sintomas.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    
+  </head>
+  <body class="bg-dark">
+
+    <section class="perguntas">
+      
+      <div class="btn-group-lg" role="group" aria-label="Exemplo básico">
+          <div class="alert alert-secondary" role="alert">
+          <strong>Apresenta Coriza?</strong>
+        </div>
+        <input id="toggle-one" type="checkbox" data-toggle="toggle" data-on="Sim" data-off="Não"  data-onstyle="success" data-offstyle="danger" >
+      </div>
+
+      <div class="btn-group-lg" role="group" aria-label="Exemplo básico">
+        <div class="alert alert-secondary" role="alert">
+          <strong>Apresenta Congestão Nasal?</strong>
+        </div>
+        <input id="toggle-two" type="checkbox" data-toggle="toggle" data-on="Sim" data-off="Não"  data-onstyle="success" data-offstyle="danger" >
+      </div>
+
+      <div class="btn-group-lg" role="group" aria-label="Exemplo básico">
+        <div class="alert alert-secondary" role="alert">
+          <strong>Apresenta Dor de Garganta?</strong>
+        </div>
+        <input id="toggle-three" type="checkbox" data-toggle="toggle" data-on="Sim" data-off="Não"  data-onstyle="success" data-offstyle="danger" >
+      </div>
+
+      <div class="btn-group-lg" role="group" aria-label="Exemplo básico">
+        <div class="alert alert-secondary" role="alert">
+          <strong>Apresenta Conjutivite?</strong>
+        </div>
+        <input id="toggle-four" type="checkbox" data-toggle="toggle" data-on="Sim" data-off="Não"  data-onstyle="success" data-offstyle="danger" >
+      </div>
+
+      <div class="btn-group-lg" role="group" aria-label="Exemplo básico">
+        <div class="alert alert-secondary" role="alert">
+          <strong>Apresenta Tosse?</strong>
+        </div>
+        <input id="toggle-five" type="checkbox" data-toggle="toggle" data-on="Sim" data-off="Não"  data-onstyle="success" data-offstyle="danger" >
+      </div>
+
+      <div class="btn-group-lg" role="group" aria-label="Exemplo básico">
+        <div class="alert alert-secondary" role="alert">
+          <strong>Apresenta Falta de Ar ou dificuldade para Respirar?</strong>
+        </div>
+        <input id="toggle-six" type="checkbox" data-toggle="toggle" data-on="Sim" data-off="Não"  data-onstyle="success" data-offstyle="danger" >
+      </div>
+
+      <div class="btn-group-lg" role="group" aria-label="Exemplo básico">
+        <div class="alert alert-secondary" role="alert">
+          <strong>Apresenta Febre?</strong>
+        </div>
+        <input id="toggle-seven" type="checkbox" data-toggle="toggle" data-on="Sim" data-off="Não"  data-onstyle="success" data-offstyle="danger" >
+      </div>
+
+      <div class="btn-group-lg" role="group" aria-label="Exemplo básico">
+        <div class="alert alert-secondary" role="alert">
+          <strong>É portador de alguma doença crônica (cardíaca, pulmonar, diabetes, insuficiência renal, hepática ou oncológica), transplantado, idoso, gestante ou faz uso de algum imunossupressor?</strong>
+        </div>
+        <input id="toggle-eight" type="checkbox" data-toggle="toggle" data-on="Sim" data-off="Não"  data-onstyle="success" data-offstyle="danger" >
+      </div>
+
+      <div class="btn-group-lg" role="group" aria-label="Exemplo básico">
+        <div class="alert alert-secondary" role="alert">
+          <strong>Teve contato próximo com algum caso suspeito ou confirmado de COVID-19 nos últimos 14 dias?</strong>
+        </div>
+        <input id="toggle-nine" type="checkbox" data-toggle="toggle" data-on="Sim" data-off="Não"  data-onstyle="success" data-offstyle="danger" >
+      </div>
+  </section>
+  <script src="./js/functions.js"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+  
+  <script>
+    let respostas = [false, false, false, false,false, false, false, false,false];
+    // let posicaoAtual = respostas.length;
+    // console.log("posicao atual: ", posicaoAtual)
+    $(function() {
+      $('#toggle-one').change(function() {
+        $('#console-event').html('Toggle: ' + $(this).prop('checked'));
+        if($(this).prop('checked')){
+          respostas[0]=true;
+        }else{
+          respostas[0]=false; 
+        }
+      })
+    });
+
+    $(function() {
+      $('#toggle-two').change(function() {
+        $('#console-event').html('Toggle: ' + $(this).prop('checked'));
+        if($(this).prop('checked')){
+          respostas[1]=true;
+        }else{
+          respostas[1]=false; 
+        }
+      })
+    });
+
+    $(function() {
+      $('#toggle-three').change(function() {
+        $('#console-event').html('Toggle: ' + $(this).prop('checked'));
+        if($(this).prop('checked')){
+          respostas[2]=true;
+        }else{
+          respostas[2]=false; 
+        }
+      })
+    });
+
+    $(function() {
+      $('#toggle-four').change(function() {
+        $('#console-event').html('Toggle: ' + $(this).prop('checked'));
+        if($(this).prop('checked')){
+          respostas[3]=true;
+        }else{
+          respostas[3]=false; 
+        }
+      })
+    });
+
+    $(function() {
+      $('#toggle-five').change(function() {
+        $('#console-event').html('Toggle: ' + $(this).prop('checked'));
+        if($(this).prop('checked')){
+          respostas[4]=true;
+        }else{
+          respostas[4]=false; 
+        }
+      })
+    });
+
+    $(function() {
+      $('#toggle-six').change(function() {
+        $('#console-event').html('Toggle: ' + $(this).prop('checked'));
+        if($(this).prop('checked')){
+          respostas[5]=true;
+        }else{
+          respostas[5]=false; 
+        }
+      })
+    });
+
+    $(function() {
+      $('#toggle-seven').change(function() {
+        $('#console-event').html('Toggle: ' + $(this).prop('checked'));
+        if($(this).prop('checked')){
+          respostas[6]=true;
+        }else{
+          respostas[6]=false; 
+        }
+      })
+    });
+
+    $(function() {
+      $('#toggle-eight').change(function() {
+        $('#console-event').html('Toggle: ' + $(this).prop('checked'));
+        if($(this).prop('checked')){
+          respostas[7]=true;
+        }else{
+          respostas[7]=false; 
+        }
+      })
+    });
+
+    $(function() {
+      $('#toggle-nine').change(function() {
+        $('#console-event').html('Toggle: ' + $(this).prop('checked'));
+        if($(this).prop('checked')){
+          respostas[8]=true;
+        }else{
+          respostas[8]=false; 
+        }
+      })
+    });
+  </script>
+
+  </body>
+</html>
