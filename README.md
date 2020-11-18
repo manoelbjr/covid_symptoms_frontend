@@ -1,0 +1,1 @@
+# covid_symptoms_frontend
