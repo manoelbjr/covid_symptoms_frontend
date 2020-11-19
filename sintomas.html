@@ -4,8 +4,17 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/sintomas.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
+   
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    
+    
     
   </head>
   <body class="bg-dark">
@@ -74,114 +83,40 @@
         </div>
         <input id="toggle-nine" type="checkbox" data-toggle="toggle" data-on="Sim" data-off="Não"  data-onstyle="success" data-offstyle="danger" >
       </div>
+
+
+      <div class="finalizar">
+        <!-- <button type="button" class="btn btn-warning btn-lg">Concluir avaliação</button> -->
+        <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#exampleModal">
+          Concluir Avaliação
+        </button>
+      </div>
   </section>
-  <script src="./js/functions.js"></script>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Avaliação de Sintomas</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Clicando no botão prosseguir você será redirecionado a página do resultado da avaliação inicial.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Reavaliar Respostas</button>
+            <button type="button" class="btn btn-primary" onClick="doClick(); return false;">Prosseguir</button>
+          </div>
+        </div>
+      </div>
+    </div>
   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
-  
+  <script src="./js/controller.js"></script>
   <script>
-    let respostas = [false, false, false, false,false, false, false, false,false];
-    // let posicaoAtual = respostas.length;
-    // console.log("posicao atual: ", posicaoAtual)
-    $(function() {
-      $('#toggle-one').change(function() {
-        $('#console-event').html('Toggle: ' + $(this).prop('checked'));
-        if($(this).prop('checked')){
-          respostas[0]=true;
-        }else{
-          respostas[0]=false; 
-        }
-      })
-    });
-
-    $(function() {
-      $('#toggle-two').change(function() {
-        $('#console-event').html('Toggle: ' + $(this).prop('checked'));
-        if($(this).prop('checked')){
-          respostas[1]=true;
-        }else{
-          respostas[1]=false; 
-        }
-      })
-    });
-
-    $(function() {
-      $('#toggle-three').change(function() {
-        $('#console-event').html('Toggle: ' + $(this).prop('checked'));
-        if($(this).prop('checked')){
-          respostas[2]=true;
-        }else{
-          respostas[2]=false; 
-        }
-      })
-    });
-
-    $(function() {
-      $('#toggle-four').change(function() {
-        $('#console-event').html('Toggle: ' + $(this).prop('checked'));
-        if($(this).prop('checked')){
-          respostas[3]=true;
-        }else{
-          respostas[3]=false; 
-        }
-      })
-    });
-
-    $(function() {
-      $('#toggle-five').change(function() {
-        $('#console-event').html('Toggle: ' + $(this).prop('checked'));
-        if($(this).prop('checked')){
-          respostas[4]=true;
-        }else{
-          respostas[4]=false; 
-        }
-      })
-    });
-
-    $(function() {
-      $('#toggle-six').change(function() {
-        $('#console-event').html('Toggle: ' + $(this).prop('checked'));
-        if($(this).prop('checked')){
-          respostas[5]=true;
-        }else{
-          respostas[5]=false; 
-        }
-      })
-    });
-
-    $(function() {
-      $('#toggle-seven').change(function() {
-        $('#console-event').html('Toggle: ' + $(this).prop('checked'));
-        if($(this).prop('checked')){
-          respostas[6]=true;
-        }else{
-          respostas[6]=false; 
-        }
-      })
-    });
-
-    $(function() {
-      $('#toggle-eight').change(function() {
-        $('#console-event').html('Toggle: ' + $(this).prop('checked'));
-        if($(this).prop('checked')){
-          respostas[7]=true;
-        }else{
-          respostas[7]=false; 
-        }
-      })
-    });
-
-    $(function() {
-      $('#toggle-nine').change(function() {
-        $('#console-event').html('Toggle: ' + $(this).prop('checked'));
-        if($(this).prop('checked')){
-          respostas[8]=true;
-        }else{
-          respostas[8]=false; 
-        }
-      })
-    });
+    
   </script>
 
   </body>
