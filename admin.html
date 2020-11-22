@@ -1,40 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
-  <title>Bootstrap Example</title>
+  <title>Página de Administração</title>
   <meta charset="utf-8">
-  
+  <!-- MOBILE FIRST-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/admin.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="bg-secondary">
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
+  <h1 id="assunto">Lista de Sintomáticos</h1>
+  <button id="btnGetSintomaticos" type="button" class="btn btn-success" onclick="getSintomaticos()">Listar Todos</button>
+  <table class="table"> 
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Endereço</th>
+        <th scope="col">Num</th>
+        <th scope="col">Bairro</th>
+        <th scope="col">Cidade</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody id="corpo">
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+    </tbody>
+    
+      <tr>
+        <!-- <th scope="row">1</th> -->
+        <!-- <td scope="row"></td> -->
+      </tr>
+    
+  </table>
+  <!-- Axios para consumir o backend -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+  <script>
+      
+      const URL_TO_FETCH = 'http://localhost:8000/api/sintomatico';
 
+      function getSintomaticos(){
+        fetch(URL_TO_FETCH,{method: 'get'})
+        .then(function(response){
+          // usa a resposta
+          response.json().then(function(data){
+            console.log(data); 
+            const ulSintomaticos = document.getElementById('corpo') //'sintomaticos'
+
+            let lista = data.map(function(item, idice){
+              return `
+                <tr>
+                    <td>${item.nome}</td>
+                    <td>${item.endereco}</td>
+                    <td>${item.numero}</td>
+                    <td>${item.bairro}</td>
+                    <td>${item.cidade}</td>
+                    <td>${item.uf}</td>
+                </tr>
+              `;
+            })
+            document.querySelector("#corpo").innerHTML = lista.join("");
+            // data.map(function sintomaticos () {
+            //   // const listaSintomaticos = document.createElement('tr') //'li'
+            //   // listaSintomaticos.innerHTML = `${sintomaticos.nome}`
+              
+            //   // ulSintomaticos.appendChild(listaSintomaticos)
+            //   var nomes = data.map(function(item, indice){
+            //       //console.log(item.nome+""+item.endereco);
+            //       const list = document.createElement('td');
+            //       list.innerHTML = `${item.nome}`
+            //       ulSintomaticos.appendChild(listaSintomaticos)
+
+            //       const listaSintomaticos = document.createElement('tr'); //'li'
+            //       listaSintomaticos.innerHTML = `${item.nome}`
+            //       ulSintomaticos.appendChild(listaSintomaticos)
+            //   })
+            // })
+            
+          });
+        })
+        .catch(function(err){console.log('Failed retrieving information', err);});
+      }
+
+  </script>
 </body>
 </html>
