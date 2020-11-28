@@ -14,3 +14,5 @@ h2{
   text-align: center;
 }
 #btn-enviar{display:flex;justify-content: center;}
+
+#input.uppercase{text-transform: uppercase;}

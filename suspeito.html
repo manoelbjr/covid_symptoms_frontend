@@ -17,27 +17,27 @@
       <form action="http://localhost:8000/api/sintomatico" method="POST">
         <div class="form-group">
           <label for="exampleFormControlInput1">Nome Completo</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" name="nome">
+          <input type="text" class="form-control" id="nome" name="nome">
         </div>
         <div class="form-group">
           <label for="address">Endereço</label>
-          <input type="text" class="form-control" id="address" name="endereco">
+          <input type="text" class="form-control" id="endereco" name="endereco">
         </div>
         <div class="form-group">
           <label for="number">Numero</label>
-          <input type="text" class="form-control" id="number" name="numero">
+          <input type="text" class="form-control" id="numero" name="numero">
         </div>
         <div class="form-group">
           <label for="neighbourhood">Bairro</label>
-          <input type="text" class="form-control" id="neighbourhood" name="bairro">
+          <input type="text" class="form-control" id="bairro" name="bairro">
         </div>
         <div class="form-group">
           <label for="city">Cidade</label>
-          <input type="text" class="form-control" id="city" name="cidade">
+          <input type="text" id="uppercase" class="form-control" id="cidade" name="cidade">
         </div>
         <div class="form-group">
           <label for="exampleFormControlSelect1">Selecione o Estado</label>
-          <select class="form-control" id="exampleFormControlSelect1" name="uf">
+          <select class="form-control" id="uf" name="uf">
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
             <option value="AP">Amapá</option>
@@ -68,16 +68,51 @@
           </select>
         </div>
         <div id="btn-enviar">
-          <button type="submit" class="btn btn-info btn-lg">Submit</button>
+          <button onclick="submitSuspect(this)" class="btn btn-info btn-lg">Submit</button>
         </div>
             
-        
       </div>
     </form>
 
   <script src="./js/controller.js"></script>
-  <!-- Axios para consumir o backend -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+
+  <script>
+    function submitSuspect(form){
+
+    //event.preventDefault();
+
+    fetch('http://localhost:8000/api/sintomatico',{
+      method: "post",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        nome: form.nome,
+        endereco: form.endereco,
+        numero: form.numero,
+        bairro: form.bairro,
+        cidade: form.cidade,
+        uf: form.uf
+      })
+    })
+    .then(res => res.json()
+    .then(window.location.href="../checkubs.html")
+
+    );
+  }
+
+  //   $(function() {
+  //     $('input').focusout(function() {
+  //         // Uppercase-ize contents
+  //         this.value = this.value.toLocaleUpperCase();
+  //     });
+  // });
+    jQuery('#uppercase').keyup(function(){
+      $(this).val($(this).val().toUpperCase());
+    });
+
+  </script>
 
   </body>
 </html>

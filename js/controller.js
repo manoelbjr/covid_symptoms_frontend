@@ -101,8 +101,6 @@ $(function() {
   })
 });
 
-//console.log("ehSuspeito:"+ehSuspeito);
-
 function doClick(){
 
   if((respostas[0] || respostas[1] 
