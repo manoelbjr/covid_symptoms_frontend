@@ -1,4 +1,4 @@
-# Frontend do Projeto de Conclusão do Curso Técnico
+# Sintomas do Covid - Triagem e Orientação - Frontend
 
 <img src="https://github.com/manoelbjr/covid_symptoms_frontend/blob/main/assets/principal.PNG" width=50% height=50%>
 
