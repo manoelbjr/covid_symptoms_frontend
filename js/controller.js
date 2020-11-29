@@ -1,6 +1,5 @@
 let respostas = [false, false, false, false, false, false, false, false,false];
 let ehSuspeito = false;
-let cidade = "sem cidade";
 
 $(function() {
   $('#toggle-one').change(function() {

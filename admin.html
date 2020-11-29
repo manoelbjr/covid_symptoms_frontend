@@ -29,14 +29,8 @@
 
     </tbody>
     
-      <tr>
-        <!-- <th scope="row">1</th> -->
-        <!-- <td scope="row"></td> -->
-      </tr>
-    
   </table>
-  <!-- Axios para consumir o backend -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+ 
   <script>
       
       const URL_TO_FETCH = 'http://localhost:8000/api/sintomatico';
@@ -49,7 +43,7 @@
             console.log(data); 
             const ulSintomaticos = document.getElementById('corpo') //'sintomaticos'
 
-            let lista = data.map(function(item, idice){
+            let lista = data.map(function(item, indice){
               return `
                 <tr>
                     <td>${item.nome}</td>
@@ -61,24 +55,7 @@
                 </tr>
               `;
             })
-            document.querySelector("#corpo").innerHTML = lista.join("");
-            // data.map(function sintomaticos () {
-            //   // const listaSintomaticos = document.createElement('tr') //'li'
-            //   // listaSintomaticos.innerHTML = `${sintomaticos.nome}`
-              
-            //   // ulSintomaticos.appendChild(listaSintomaticos)
-            //   var nomes = data.map(function(item, indice){
-            //       //console.log(item.nome+""+item.endereco);
-            //       const list = document.createElement('td');
-            //       list.innerHTML = `${item.nome}`
-            //       ulSintomaticos.appendChild(listaSintomaticos)
-
-            //       const listaSintomaticos = document.createElement('tr'); //'li'
-            //       listaSintomaticos.innerHTML = `${item.nome}`
-            //       ulSintomaticos.appendChild(listaSintomaticos)
-            //   })
-            // })
-            
+            document.querySelector("#corpo").innerHTML = lista.join("");            
           });
         })
         .catch(function(err){console.log('Failed retrieving information', err);});
