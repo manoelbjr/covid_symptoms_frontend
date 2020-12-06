@@ -37,7 +37,7 @@
       
       let cidade = '';
       function getLast(){
-      const URL_TO_FETCH = 'http://localhost:8000/api/sintomatico/getlast';
+      const URL_TO_FETCH = 'https://covidrn.herokuapp.com/api/sintomatico/getlast';
       fetch(URL_TO_FETCH,{method: 'get'})
       
         .then(function(response){
@@ -58,7 +58,7 @@
       }
       
       function getUBS(){
-        const URL_GET_CIDADE = `http://localhost:8000/api/ubscidade/${cidade}`;
+        const URL_GET_CIDADE = `https://covidrn.herokuapp.com/api/ubscidade/${cidade}`;
         //console.log(URL_GET_CIDADE);
 
 
