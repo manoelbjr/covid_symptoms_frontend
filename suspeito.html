@@ -14,7 +14,7 @@
     <h2>Informações Endereço</h2>
     
     <div id="formulario" > 
-      <form action="http://localhost:8000/api/sintomatico" method="POST">
+      <form action="https://covidrn.herokuapp.com/api/sintomatico" method="POST">
         <div class="form-group">
           <label for="exampleFormControlInput1">Nome Completo</label>
           <input type="text" class="form-control" id="nome" name="nome">
@@ -81,7 +81,7 @@
 
     //event.preventDefault();
 
-    fetch('http://localhost:8000/api/sintomatico',{
+    fetch('https://covidrn.herokuapp.com/api/sintomatico',{
       method: "post",
       headers: {
         'Accept': 'application/json',
