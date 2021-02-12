@@ -114,8 +114,8 @@ function doClick(){
   }
 
   if(ehSuspeito){
-    window.location.href="https://friendly-lumiere-51b436.netlify.app/suspeito.html";
+    window.location.href="https://covidrn.netlify.app/suspeito.html";
   }else{
-    window.location.href="https://friendly-lumiere-51b436.netlify.app/alerta.html";
+    window.location.href="https://covidrn.netlify.app/alerta.html";
   }
 }
